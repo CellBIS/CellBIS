@@ -1,0 +1,519 @@
+=encoding utf8
+
+=head1 NAME
+
+Mojolicious::Plugin::CellbisDBIO - Mojolicious Plugin for Simple ORM Database.
+
+=head1 SYNOPSIS
+
+  # Mojolicious Lite :
+  plugin 'CellbisDBIO' => {
+    'db_config' => {
+      'db_name' => 'database_name',
+      'db_host' => 'localhost', # default database connection to "localhost"
+      'db_user' => 'db_user', # example user database.
+      'db_pass' => 'myPaSsWordDb, # example password database.
+    },
+    'db_type'   => 'mysql', # So for, fully support to MySQL/MariaDB.
+    'error_dbi' => {
+      RaiseError => 1,
+      PrintError => 1,
+      AutoCommit => 1,
+      mysql_auto_reconnect => 1
+    } # examples, DBI Attributes. You can use "{}" or empty hashref
+  };
+
+  # Mojolicious Non-Lite
+  package MyExampleApp;
+  use Mojo::Base 'Mojolicious';
+
+  # Route :
+  sub startup {
+    my $self = shift;
+
+    # Enable Plugin :
+    $self->plugin(CellbisDBIO => {
+        'db_config' => {
+          'db_name' => 'database_name',
+          'db_host' => 'localhost', # default database connection to "localhost"
+          'db_user' => 'db_user', # example user database.
+          'db_pass' => 'myPaSsWordDb, # example password database.
+        },
+        'db_type'   => 'mysql', # So for, fully support to MySQL/MariaDB.
+        'error_dbi' => {
+          RaiseError => 1,
+          PrintError => 1,
+          AutoCommit => 1,
+          mysql_auto_reconnect => 1
+        } # examples, DBI Attributes. You can use "{}" or empty hashref
+    });
+
+    # My Routes Example :
+    $self->routes->get('/hello')->to('foo#hello');
+  }
+
+  # Start the Mojolicious command system
+  app->start;
+
+  ###################################################################
+  # To use in Controller, Mojolicious Template :
+  ###################################################################
+  my $dbio = $c->dbioLite();
+
+  ###################################################################
+  # For table handle :
+  ###################################################################
+  my $th = $dbio->table(); # Table Handler.
+
+  # To create table database.
+  my $create = $th->create();
+
+  # for check exists table database.
+  my $check = $th->check();
+
+  # To create Event Scheduler SQL.
+  my $event = $th->create_event();
+
+  # To create Trigger table database.
+  my $trigger = $th->create_trigger();
+
+  # To create Storage Procedure SQL.
+  my $procedure = $th->create_procedure();
+
+  # To create custom function SQL.
+  my $function = $th->create_function();
+
+  # To get last id from "Auto Increment Table".
+  my $last_id_table = $th->last_id_autoIncrement();
+
+  # Drop Event Scheduler :
+  my $drop_event = $th->drop_event();
+
+  # Get Database type :
+  my $db_type = $th->get_dbtype();
+
+  # Get data Database Config :
+  my $db_config = $th->get_dbconfig();
+
+  # Get list attribute DBI :
+  my $dbi_attr = $th->get_DBI_attr();
+
+  ###################################################################
+  # For table query handle :
+  ###################################################################
+  my $thq = $dbio->query();
+
+  # For Insert data table :
+  my $insert = $thq->insert();
+
+  # For Update data table ;
+  my $update = $thq->update();
+
+  # For Delete data table :
+  my $delete = $thq->delete();
+
+  # For Select data table :
+  my $select = $thq->select();
+
+  # For Select with Join Table :
+  my $select_join = $thq->select_join();
+
+=head1 DESCRIPTION
+
+Mojolicious Plugin for Minimalize database interface Object.
+
+=head1 METHODS
+
+L<Mojolicious::Plugin::CellbisDBIO> inherits all methods from
+L<Mojolicious::Plugin> and implements the following new ones.
+
+L<Mojolicious::Plugin::CellbisDBIO> also inherits from
+L<CellBIS::DBIO::Lite>, that module includes method :
+
+=over 2
+
+=item * C<table()>
+To handle table database.
+
+=item * C<query()>
+To Handle query table database
+
+=item * C<query_string()>
+Only create query string.
+
+=back
+
+=head1 Explanation argument subroutine callback in Methods
+
+Example callbacks in methods :
+
+  # callback method "insert()"
+  sub {
+    my ($dbh, $sth, $id, $q, $param, $sql_error) = @_;
+  }
+
+  # callback method "update()" and "delete()"
+  sub {
+    my ($dbh, $sth, $sql_error) = @_;
+  }
+
+  # callback method "select()" and "select_join()"
+  sub {
+    my ($dbh, $sth, $q, $param, $sql_error) = @_;
+  }
+
+=over
+
+=item * B<$dbh> to reusing DBI->connect() on callback.
+
+=item * B<$sth> to reusing existing I<Query Statement> on callback.
+
+=item * B<$id> to get last insert id from method "insert()"
+
+=item * B<$q> to get query which used in method.
+
+=item * B<$param> to get param which used in method.
+
+=item * B<$sql_error> to get hashref SQL Error.
+
+=back
+
+=head1 Explanation of Methods "$dbio->table()" :
+
+This point, will be give :
+
+=over
+
+=item * B<Create Table>
+
+=item * B<Create Event Scheduler>
+
+=item * B<Create Trigger Table>
+
+=item * B<Create Storage Procedure SQL>
+
+=item * B<Create custom Function SQL>
+
+=item * B<Get last insert ID>
+
+=item * B<Drop Event>
+
+=item * B<Get Database Type>
+
+=item * B<Get Database Config>
+
+=item * B<Get DBI Attributes>
+
+=back
+
+=head2 Create Table :
+
+=head3 create_table() - Simple way to create table :
+
+B<Equivalent in SQL Script> :
+
+    CREATE TABLE name_table(
+        col1 INT(11) PRIMARY_KEY NOT NULL AUTO_INCREMENT,
+        col2 INT(11) NOT NULL,
+        col3 VARCHAR(200) NOT NULL,
+        col4 DATETIME NOT NULL,
+        KEY name_fk (col2),
+        CONSTRAINT name_fk FOREIGN KEY (col2) REFERENCES table_target (col_target)
+        ON DELETE CASCADE ON UPDATE CASCADE
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+To use method :
+
+  my $table_name = 'name_table';
+  my $col_list = [
+    'col1',
+    'col2',
+    'col3',
+    'col4',
+  ];
+  my $col_attr = {
+    'col1' => {
+      type => { name => 'int', size => '11' },
+      is_primarykey => 1,
+      is_autoincre => 1,
+    },
+    'col2' => {
+      type => { name => 'int', size => '11' },
+      is_null => 0,
+    },
+    'col3' => {
+      type => { name => 'varchar', size => '200' },
+      is_null => 0,
+    },
+    'col3' => {
+      type => { name => 'datetime' },
+      onupdate => 1,
+      is_null => 0,
+    }
+  };
+  my $table_attr = {
+    fk => {
+      name => 'name_fk',
+      col_name => 'col2_table',
+      table_target => 'table_target',
+      col_target => 'col_target',
+      attr => {
+        onupdate => 'cascade',
+        ondelete => 'cascade'
+      }
+    },
+    charset => 'utf8',
+    engine => 'innodb',
+  };
+
+  my $create_table = $th->create($table_name, $col_list, $col_attr,);
+
+=head3 create_table() - without callback :
+
+B<Equivalent in SQL Script> :
+
+    CREATE TABLE name_table(
+        col1 INT(11) PRIMARY_KEY NOT NULL AUTO_INCREMENT,
+        col2 INT(11) NOT NULL,
+        col3 VARCHAR(200) NOT NULL,
+        col4 DATETIME NOT NULL,
+        KEY name_fk (col2),
+        CONSTRAINT name_fk FOREIGN KEY (col2) REFERENCES table_target (col_target)
+        ON DELETE CASCADE ON UPDATE CASCADE
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+To use method :
+
+  my $table_name = 'name_table';
+  my $col_list = [
+    'col1',
+    'col2',
+    'col3',
+    'col4',
+  ];
+  my $col_attr = {
+    'col1' => {
+      type => { name => 'int', size => '11' },
+      is_primarykey => 1,
+      is_autoincre => 1,
+    },
+    'col2' => {
+      type => { name => 'int', size => '11' },
+      is_null => 0,
+    },
+    'col3' => {
+      type => { name => 'varchar', size => '200' },
+      is_null => 0,
+    },
+    'col3' => {
+      type => { name => 'datetime' },
+      onupdate => 1,
+      is_null => 0,
+    }
+  };
+  my $table_attr = {
+    fk => {
+      name => 'name_fk',
+      col_name => 'col2',
+      table_target => 'table_target',
+      col_target => 'col_target',
+      attr => {
+        onupdate => 'cascade',
+        ondelete => 'cascade'
+      }
+    },
+    charset => 'utf8',
+    engine => 'innodb',
+  };
+
+  my $create_table = $th->create($table_name, $col_list, $col_attr, $table_attr);
+
+=head3 create_table() - with callback :
+
+The purpose of B<callback> that give action after run query B<create_table()> data.
+
+B<Equivalent in SQL Script> :
+
+    CREATE TABLE name_table(
+        col1 INT(11) PRIMARY_KEY NOT NULL AUTO_INCREMENT,
+        col2 INT(11) NOT NULL,
+        col3 VARCHAR(200) NOT NULL,
+        col4 DATETIME NOT NULL,
+        KEY name_fk (col2),
+        CONSTRAINT name_fk FOREIGN KEY (col2) REFERENCES table_target (col_target)
+        ON DELETE CASCADE ON UPDATE CASCADE
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+To use method :
+
+  my $table_name = 'name_table';
+  my $col_list = [
+    'col1',
+    'col2',
+    'col3',
+    'col4',
+  ];
+  my $col_attr = {
+    'col1' => {
+      type => { name => 'int', size => '11' },
+      is_primarykey => 1,
+      is_autoincre => 1,
+    },
+    'col2' => {
+      type => { name => 'int', size => '11' },
+      is_null => 0,
+    },
+    'col3' => {
+      type => { name => 'varchar', size => '200' },
+      is_null => 0,
+    },
+    'col3' => {
+      type => { name => 'datetime' },
+      onupdate => 1,
+      is_null => 0,
+    }
+  };
+  my $table_attr = {
+    fk => {
+      name => 'name_fk',
+      col_name => 'col2',
+      table_target => 'table_target',
+      col_target => 'col_target',
+      attr => {
+        onupdate => 'cascade',
+        ondelete => 'cascade'
+      }
+    },
+    charset => 'utf8',
+    engine => 'innodb',
+  };
+  my $callback = sub {
+    my ($dbh, $q) = @_;
+
+  };
+
+  my $create_table = $table_query->create($table_name, $col_list, $col_attr, $table_attr, $callback);
+
+=head2 Create Event Scheduler SQL :
+
+In value of key hashref B<type>, there are 2 options that B<one> and B<recurr>.
+Each key hashref B<type> have different key hashref format :
+
+=head3 Options Event Scheduler
+
+=over
+
+=item * One time Action :
+
+Hashref must like below :
+
+    my $event_attr = {
+        type => 'one', # one => just one time action
+        time => '1m',
+    };
+
+=item * Recurring time Action :
+
+Hashref must like below :
+
+    my $event_attr = {
+        type => 'recurr',
+        time => '10m',
+        start => '0',
+        end => '1h',
+    };
+
+=back
+
+=head3 Time Format
+
+Each key hashref B<tiem>, B<start>, & B<end> must using datetime format below :
+
+    <Amount of time><unit time> equivalent 1m
+
+C<Y> = YEAR
+
+C<M> = MONTH
+
+C<W> = WEEK
+
+C<D> = DAY
+
+C<h> = HOUR
+
+C<m> = MINUTE
+
+C<s> = SECOND
+
+=head3 Guide to create Event Scheduler :
+
+=head4 create_event() - One time action event scheduler :
+
+This choice is only one time action after start and end after action B<Event Scheduler>.
+
+B<Equivalent in SQL Script> :
+
+    DELIMITER $$
+    DROP EVENT IF EXISTS name_event $$
+    CREATE EVENT name_event
+        ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 MINUTE
+        ON COMPLETION PRESERVE
+    DO
+      INSERT INTO test_table(data) VALUES('data3');
+    DELIMITER ;
+
+To use method :
+
+    my $event_name = 'name_event';
+    my $event_attr = {
+        type => 'one', # one => just one time action
+        time => '1m',
+    };
+    my $sql_event = "INSERT INTO test_table(data) VALUES('data3');";
+
+    my $create_event = $table_query->create_event($event_name, $event_attr, $db_query);
+
+=head4 create_event() - Recurring times action event scheduler :
+
+This choice will action in the B<Current Time> or will be B<start> action based on time determined.
+You can set specific time to B<end> I<Event Scheduler> too.
+
+B<Equivalent in SQL Script> :
+
+    DELIMITER $$
+    DROP EVENT IF EXISTS name_event $$
+    CREATE EVENT name_event
+        ON SCHEDULE EVERY 10 MINUTE
+        STARTS CURRENT_TIMESTAMP
+        ENDS CURRENT_TIMESTAMP + INTERVAL 1 HOUR
+    DO
+      INSERT INTO test_table(data) VALUES('data3');
+    DELIMITER ;
+
+To use method :
+
+    my $event_name = 'name_event';
+    my $event_attr = {
+        type => 'recurr', # recurr => is continue action base on time set.
+        time => '10m', # Scheduler Every 10 Minute
+        start => '0', # Current Time stamp.
+        end => '+1h', # future time.
+    };
+    my $sql_event = "INSERT INTO test_table(data) VALUES('data3');";
+
+    my $create_event = $table_query->create_event($event_name, $event_attr, $db_query);
+
+=head1 Explanation of Methods "$dbio->query()" :
+
+=head3
+
+=head1 AUTHORS
+
+Achmad Yusri Afandi, E<lt>yusrideb@cpan.orgE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2017 by Achmad Yusri Afandi
+
+This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
+
