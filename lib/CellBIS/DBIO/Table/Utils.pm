@@ -416,7 +416,7 @@ sub create_queryTbl {
       $data .= ") ENGINE=InnoDB DEFAULT CHARSET=utf8";
     }
   }
-#  print Dumper $data;
+  # print Dumper $data;
   return $data;
 }
 

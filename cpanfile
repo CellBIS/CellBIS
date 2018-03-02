@@ -49,6 +49,8 @@ on 'build' => sub {
 };
 
 on 'configure' => sub {
+  requires "ExtUtils::MakeMaker" => "0";
+  requires "File::ShareDir::Install" => "0.06";
   requires "Module::Build" => "0.3601";
 };
 

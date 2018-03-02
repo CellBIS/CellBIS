@@ -28,7 +28,7 @@ sub register {
   my $lib_base = catdir(dirname(rel2abs(__FILE__)), '..', 'share', 'resources');
   
   my $templates = catdir($lib_base, 'templates');
-  my $loc_tmpl = -d $templates ? $templates : catdir(dist_dir('Mojolicious-Plugin-CellBIS'), 'templates');
+  my $loc_tmpl = -d $templates ? $templates : catdir(dist_dir('CellBIS'), 'templates');
   push @{$app->renderer->paths}, $loc_tmpl
     if none {$_ eq $loc_tmpl} @{$app->renderer->paths};
   

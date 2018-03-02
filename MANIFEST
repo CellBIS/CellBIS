@@ -4,11 +4,14 @@ LICENSE
 MANIFEST
 META.json
 META.yml
+Makefile.PL
 cpanfile
 dist.ini
-docs/CellBIS::DBIO::Lite.md
-docs/CellBIS::DBIO::Lite::Query.md
-docs/CellBIS::DBIO::Lite::Table.md
+example/CellBIS/cellbisDBIO
+example/CellBIS/example.db
+example/CellBIS/templates/create_table.html.ep
+example/CellBIS/templates/index.html.ep
+example/CellBIS/templates/layouts/default.html.ep
 lib/CellBIS.pm
 lib/CellBIS/Auth.pm
 lib/CellBIS/Auth/Store/Auth_login.pm

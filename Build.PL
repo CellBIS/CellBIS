@@ -11,6 +11,8 @@ my %module_build_args = (
     "Module::Build" => "0.3601"
   },
   "configure_requires" => {
+    "ExtUtils::MakeMaker" => 0,
+    "File::ShareDir::Install" => "0.06",
     "Module::Build" => "0.3601"
   },
   "dist_abstract" => "Main Module CellBIS Toolkit based on Mojolicious",

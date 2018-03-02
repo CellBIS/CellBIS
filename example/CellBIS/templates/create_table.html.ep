@@ -1,0 +1,9 @@
+% layout 'default';
+
+% title 'Create Table';
+
+% if (stash('result')) {
+  <p>Table <%= stash('table_name') %> is success</p>
+% } else {
+  <p>Table <%= stash('table_name') %> is error</p>
+% }
