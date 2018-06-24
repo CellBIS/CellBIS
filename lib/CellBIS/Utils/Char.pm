@@ -1,11 +1,7 @@
 package CellBIS::Utils::Char;
+$CellBIS::Utils::Char::VERSION = '0.1';
 use strict;
 use warnings FATAL => 'all';
-
-# Use Module :
-
-# Version :
-our $VERSION = '0.1000';
 
 # Subroutine for split character based character :
 # ------------------------------------------------------------------------

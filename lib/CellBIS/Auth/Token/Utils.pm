@@ -1,4 +1,5 @@
 package CellBIS::Auth::Token::Utils;
+$CellBIS::Auth::Token::Utils::VERSION = '0.1';
 use strict;
 use warnings;
 
@@ -11,7 +12,6 @@ use CellBIS::Auth::Utils;
 #use Mojo::Cookie::Response;
 use Mojo::ByteStream qw(b);
 
-our $VERSION = '0.1000';
 
 # For Create cookies Token :
 # ------------------------------------------------------------------------

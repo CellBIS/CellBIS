@@ -1,11 +1,11 @@
 package CellBIS::Notify::PID;
+$CellBIS::Notify::PID::VERSION = '0.1';
 use Mojo::Base '-strict';
 
 use CellBIS::Notify::PID::Event;
 use Mojo::File;
 
 # ABSTRACT: Module for handle Proccess
-our $VERSION = '0.1000';
 
 # Constructor :
 # ------------------------------------------------------------------------

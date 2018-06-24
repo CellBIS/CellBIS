@@ -1,11 +1,11 @@
 package Mojolicious::Plugin::CellbisDBIO;
+$Mojolicious::Plugin::CellbisDBIO::VERSION = '0.1';
 use Mojo::Base 'Mojolicious::Plugin';
 
 use CellBIS::DBIO::Lite;
 use DBIx::Connector;
 
 # ABSTRACT: CellBIS Toolkit for Simple DBI Object based on Mojolicious Plugin.
-our $VERSION = '0.1000';
 
 has DBIOLite => sub {DBIx::Connector->new(@_)};
 

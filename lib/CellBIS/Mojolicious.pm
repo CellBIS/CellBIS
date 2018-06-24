@@ -1,4 +1,5 @@
 package CellBIS::Mojolicious;
+$CellBIS::Mojolicious::VERSION = '0.1';
 use Mojo::Base -base;
 
 use Scalar::Util qw(blessed);
@@ -7,7 +8,6 @@ use DateTime;
 use CellBIS::Mojolicious::Routes;
 
 # ABSTRACT: Module for working with mojolicious and Web Utilities.
-our $VERSION = '0.1000';
 
 # Constructor :
 # ------------------------------------------------------------------------

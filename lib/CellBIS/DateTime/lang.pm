@@ -1,9 +1,8 @@
 package CellBIS::DateTime::lang;
+$CellBIS::DateTime::lang::VERSION = '0.1';
 use strict;
 use warnings;
 
-# Version :
-our $VERSION = '0.1000';
 use vars '$AUTOLOAD';
 
 # AutoLoad :

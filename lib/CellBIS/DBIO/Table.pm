@@ -12,7 +12,6 @@ use CellBIS::DBIO::Table::Action;
 use CellBIS::DBIO::Error;
 
 # ABSTRACT : Part of DBIO to handling table query.
-our $VERSION = '0.1000';
 
 sub utils {"CellBIS::DBIO::Table::Utils"}
 sub action {"CellBIS::DBIO::Table::Action"}
@@ -217,7 +216,7 @@ sub create_view {
     if ($data_query ne '') {
       $dbh->do("DROP VIEW IF EXISTS $view_name");
       my $q = "CREATE VIEW $view_name AS $data_query";
-      #			say "Query View : \n $q";
+      # say "Query View : \n $q";
       if ($dbh->do($q)) {
         $data{'result'} = 1;
         $data{'msg'} = "Success - Create View | $view_name";

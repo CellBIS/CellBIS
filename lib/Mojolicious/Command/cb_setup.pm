@@ -1,7 +1,6 @@
 package Mojolicious::Command::cb_setup;
+$Mojolicious::Command::cb_setup::VERSION = '0.1';
 use Mojo::Base 'Mojolicious::Commands';
-
-our $VERSION = '0.1000';
 
 use Mojo::Util 'dumper';
 

@@ -12,7 +12,7 @@ use CellBIS::Auth::Store::Auth_login 'login_tbl_info';
 use Mojo::Cookie::Response;
 
 # ABSTRACT: Module for Authentication Utilities.
-our $VERSION = '0.1000';
+
 
 #######################################################################################
 # FOR LOGIN LOGOUT

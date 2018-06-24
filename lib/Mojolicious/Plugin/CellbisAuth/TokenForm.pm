@@ -1,4 +1,5 @@
 package Mojolicious::Plugin::CellbisAuth::TokenForm;
+$Mojolicious::Plugin::CellbisAuth::TokenForm::VERSION = '0.1';
 use Mojo::Base 'Mojolicious::Plugin';
 
 use Scalar::Util qw(looks_like_number);
@@ -8,7 +9,6 @@ use CellBIS::Auth::Utils;
 use CellBIS::Auth::Store::TokenForm 'tokenForm_tblInfo';
 
 # ABSTRACT: Mojolicious Plugin for Token Form Validation
-our $VERSION = '0.1000';
 
 sub register {
 	my $plugin = shift;

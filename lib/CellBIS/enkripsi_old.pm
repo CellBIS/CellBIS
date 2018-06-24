@@ -1,4 +1,5 @@
 package CellBIS::enkripsi_old;
+$CellBIS::enkripsi_old::VERSION = '0.1';
 use strict;
 use warnings FATAL => 'all';
 
@@ -7,9 +8,6 @@ use Data::Dumper;
 use Digest::MD5 qw(md5 md5_hex md5_base64);
 use MIME::Base64 ();
 use CellBIS::Utils::Char;
-
-# Version :
-our $VERSION = '0.1000';
 
 # Subroutine for Web Encoder :
 # ------------------------------------------------------------------------

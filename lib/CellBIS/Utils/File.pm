@@ -1,9 +1,7 @@
 package CellBIS::Utils::File;
+$CellBIS::Utils::File::VERSION = '0.1';
 use strict;
 use warnings FATAL => 'all';
-
-# Version :
-our $VERSION = '0.1000';
 
 # Subroutine for read file dir :
 # ------------------------------------------------------------------------

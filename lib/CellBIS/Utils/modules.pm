@@ -1,12 +1,10 @@
 package CellBIS::Utils::modules;
+$CellBIS::Utils::modules::VERSION = '0.1';
 use strict;
 use warnings FATAL => 'all';
 
 # Import Module :
 use Hash::Merge qw( merge );
-
-# Version :
-our $VERSION = '0.1000';
 
 # Create Module for check IF module is exists :
 # ------------------------------------------------------------------------

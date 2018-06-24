@@ -1,4 +1,5 @@
 package CellBIS::enkripsi;
+$CellBIS::enkripsi::VERSION = '0.1';
 use strict;
 use warnings FATAL => 'all';
 
@@ -7,8 +8,6 @@ use Carp ();
 use Scalar::Util qw(blessed);
 use List::SomeUtils qw(part);
 use CellBIS::Utils::Char;
-
-our $VERSION = '0.1000';
 
 # Constructor :
 # ------------------------------------------------------------------------
@@ -207,14 +206,8 @@ sub random {
   my $len_str = length $string;
   my $str = '';
   
-  # Check String, Jika angka genap.
-  if (($len_str % 2) == 0) {
-    $str = $string;
-  }
-  # Check String, jika angka ganjil
-  else {
-    $str = $string . '|';
-  }
+  # Check Length string if Odd or Even :
+  $str = ($len_str % 2) == 0 ? $string : $string . '|';
   
   # Action Random :
   $data = $self->rand_odd2even($str, $c_odd2even, $c_even2odd, $nested);

@@ -1,4 +1,5 @@
 package Mojolicious::Plugin::CellbisEtc;
+$Mojolicious::Plugin::CellbisEtc::VERSION = '0.1';
 use Mojo::Base 'Mojolicious::Plugin';
 
 use Data::Dumper;
@@ -9,8 +10,6 @@ use Config::INI::Writer;
 use Mojo::JSON 'j';
 use Mojo::Util 'dumper';
 use CellBIS::Utils::Config;
-
-our $VERSION = '0.1000';
 
 sub register {
 	my ($self, $app) = @_;

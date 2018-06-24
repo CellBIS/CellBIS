@@ -12,7 +12,6 @@ use String::Util qw(trim);
 use CellBIS::DBIO::Table::Utils;
 
 # ABSTRACT: Module for Create Query String;
-our $VERSION = '0.1000';
 
 sub utils {return "CellBIS::DBIO::Query::Utils"}
 sub action {"CellBIS::DBIO::Query::Action"}

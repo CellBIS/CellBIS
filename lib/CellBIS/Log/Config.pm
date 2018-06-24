@@ -1,10 +1,10 @@
 package CellBIS::Log::Config;
+$CellBIS::Log::Config::VERSION = '0.1';
 use Mojo::Base '-strict';
 
 use Mojo::Util qw(dumper);
 
 # ABSTRACT: Module for handle log configure.
-our $VERSION = '0.1000';
 
 # Config for database log :
 # ------------------------------------------------------------------------

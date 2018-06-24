@@ -10,7 +10,7 @@ use Hash::MultiValue;
 use CellBIS::DateTime;
 use Scalar::Util qw(blessed);
 
-our $VERSION = '0.1000';
+
 
 # For Foreign Key Validator:
 # ------------------------------------------------------------------------

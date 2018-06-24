@@ -1,11 +1,10 @@
 package Mojolicious::Command::cb_setup::db;
+$Mojolicious::Command::cb_setup::db::VERSION = '0.1';
 use Mojo::Base 'Mojolicious::Command';
 
 use Mojo::JSON qw(encode_json);
 use Mojo::Util qw(dumper);
 use Getopt::Long qw(GetOptionsFromArray);
-
-our $VERSION = '0.1000';
 
 has description => 'Generate Mojolicious application directory structure';
 has usage => sub { shift->extract_usage };

@@ -1,4 +1,5 @@
 package Mojolicious::Plugin::CellBIS;
+$Mojolicious::Plugin::CellBIS::VERSION = '0.1';
 use Mojo::Base 'Mojolicious::Plugin';
 
 use CellBIS::Mojolicious;
@@ -10,7 +11,6 @@ use File::ShareDir 'dist_dir';
 use Cwd;
 
 # ABSTRACT: CellBIS Toolkit for Mojolicious.
-our $VERSION = '0.1000';
 
 # Register Plugin :
 # ------------------------------------------------------------------------
@@ -21,11 +21,11 @@ sub register {
   my $lib_base = catdir(dirname(rel2abs(__FILE__)), '..', 'share', 'resources');
   
   my $public = catdir($lib_base, 'public');
-  push @{$app->static->paths}, -d $public ? $public : catdir(dist_dir('Mojolicious-Plugin-CellBIS'), 'public');
+  push @{$app->static->paths}, -d $public ? $public : catdir(dist_dir('CellBIS'), 'public');
   
   my $templates = catdir($lib_base, 'templates');
   push @{$app->renderer->paths},
-      -d $templates ? $templates : catdir(dist_dir('Mojolicious-Plugin-CellBIS'), 'templates');
+      -d $templates ? $templates : catdir(dist_dir('CellBIS'), 'templates');
   
   $app->helper(cb_mojo => sub {
       my $mojo = shift;

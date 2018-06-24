@@ -1,12 +1,10 @@
 package CellBIS::Utils::ArrHash;
+$CellBIS::Utils::ArrHash::VERSION = '0.1';
 use strict;
 use warnings FATAL => 'all';
 
 # Import Module :
 use List::Util qw( min max );
-
-# Version :
-our $VERSION = '0.1000';
 
 # Subroutine for Key Hash to Array :
 # ------------------------------------------------------------------------

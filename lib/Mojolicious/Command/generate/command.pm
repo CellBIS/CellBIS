@@ -1,11 +1,11 @@
 package Mojolicious::Command::generate::command;
+$Mojolicious::Command::generate::command::VERSION = '0.1';
 use Mojo::Base 'Mojolicious::Command';
 
 use Mojo::Util qw(camelize class_to_path);
 use Mojolicious;
 
 # ABSTRACT: Mojolicious command generator for command_mojo
-our $VERSION = '0.1000';
 
 has description => 'Generate Mojolicious command directory structure';
 has usage => sub { shift->extract_usage };
@@ -100,7 +100,7 @@ __DATA__
 package <%= $class %>;
 use Mojo::Base 'Mojolicious::Command';
 
-our $VERSION = '0.1000';
+
 
 sub run {
   my ($self, @args) = @_;

@@ -1,4 +1,5 @@
 package CellBIS::Mojolicious::Routes;
+$CellBIS::Mojolicious::Routes::VERSION = '0.1';
 use Mojo::Base '-strict';
 
 use Scalar::Util qw(blessed);
@@ -6,7 +7,6 @@ use Scalar::Util qw(blessed);
 use Mojo::Util qw(dumper);
 
 # ABSTRACT: Module for working with Mojolicious Routes.
-our $VERSION = '0.1000';
 
 # Constructor :
 # ------------------------------------------------------------------------

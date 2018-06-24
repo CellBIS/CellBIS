@@ -1,11 +1,11 @@
 package CellBIS::Auth::Store::TokenForm;
+$CellBIS::Auth::Store::TokenForm::VERSION = '0.1';
 use Mojo::Base '-strict';
 
 use Scalar::Util qw(blessed);
 use CellBIS::enkripsi;
 
 # ABSTRACT: Module for Token Form database storage
-our $VERSION = '0.1000';
 
 our @EXPORT_OK = ('tokenForm_tblInfo');
 

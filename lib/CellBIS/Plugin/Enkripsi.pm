@@ -1,11 +1,10 @@
 package CellBIS::Plugin::Enkripsi;
+$CellBIS::Plugin::Enkripsi::VERSION = '0.1';
 use Mojo::Base 'Mojolicious::Plugin';
 
 use Data::Dumper;
 use CellBIS::enkripsi;
 use Mojo::Util 'dumper';
-
-our $VERSION = '0.1000';
 
 sub register {
 	my ($self, $app) = @_;
@@ -39,6 +38,7 @@ sub register {
 			my $getKey_enc = CellBIS::enkripsi->getKey_enc($secret);
 			return CellBIS::enkripsi->Encoder($string, $getKey_enc);
 		});
+
 	$app->helper(cb_decoder => sub {
 			my $mojo = shift;
 			my $arg_len = scalar @_;

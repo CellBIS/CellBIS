@@ -1,4 +1,5 @@
 package CellBIS::enkripsi::jwt;
+$CellBIS::enkripsi::jwt::VERSION = '0.1';
 use strict;
 use warnings FATAL => 'all';
 
@@ -7,7 +8,6 @@ use Crypt::JWT qw(encode_jwt decode_jwt);
 use CellBIS::enkripsi;
 
 # Version :
-our $VERSION = '0.1000';
 
 # Subroutine for Encode JWS :
 # ------------------------------------------------------------------------

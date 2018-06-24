@@ -1,4 +1,5 @@
 package CellBIS::Auth::Store::Token;
+$CellBIS::Auth::Store::Token::VERSION = '0.1';
 use strict;
 use warnings;
 
@@ -6,7 +7,6 @@ use Scalar::Util qw(blessed);
 use JSON::XS;
 
 # ABSTRACT: Token Store.
-our $VERSION = '0.1000';
 
 # Constructor :
 # ------------------------------------------------------------------------

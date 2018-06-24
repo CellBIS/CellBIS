@@ -1,4 +1,4 @@
-package  # hide from PAUSE
+package # hide from PAUSE
 CellBIS::DBIO::Query::Action;
 
 use strict;
@@ -12,7 +12,7 @@ use CellBIS::DBIO::Error;
 use CellBIS::DBIO::Query::Utils;
 
 # ABSTRACT: Module for Action Query Class.
-our $VERSION = '0.1000';
+
 
 sub error_sql {return "CellBIS::DBIO::Error"}
 sub utils {return "CellBIS::DBIO::Query::Utils"}
@@ -33,17 +33,17 @@ sub insert_arg4 {
   my $field_col = join ', ', @table_field;
   
   my @get_PrepareSt = utils->insert_data_prepare_statement(\@table_data);
-  #	my @get_noPrepareSt = utils->insert_data_no_prepare_statement(\@table_data);
-  #	my $size_PrepareSt = scalar @get_PrepareSt;
-  #	my $size_noPrepareSt = scalar @get_noPrepareSt;
-  #	my $value_col_PrepareSt = '?, ' x $size_PrepareSt;
-  #	my $value_col_noPrepareSt = join ', ', @get_noPrepareSt;
-  #	my $value_col = '';
-  #	if ($size_noPrepareSt >= 1) {
-  #		$value_col = $value_col_PrepareSt.', '.$value_col_noPrepareSt;
-  #	} else {
-  #		$value_col = $value_col_PrepareSt;
-  #	}
+  #  my @get_noPrepareSt = utils->insert_data_no_prepare_statement(\@table_data);
+  #  my $size_PrepareSt = scalar @get_PrepareSt;
+  #  my $size_noPrepareSt = scalar @get_noPrepareSt;
+  #  my $value_col_PrepareSt = '?, ' x $size_PrepareSt;
+  #  my $value_col_noPrepareSt = join ', ', @get_noPrepareSt;
+  #  my $value_col = '';
+  #  if ($size_noPrepareSt >= 1) {
+  #    $value_col = $value_col_PrepareSt.', '.$value_col_noPrepareSt;
+  #  } else {
+  #    $value_col = $value_col_PrepareSt;
+  #  }
   
   my @get_data_value = utils->replace_data_value_insert(\@table_data);
   my $value_col = join ', ', @get_data_value;
@@ -109,7 +109,7 @@ sub insert_arg5 {
     $callback = {};
   }
   
-  #	print Dumper \@_;
+  #  print Dumper \@_;
   
   my @table_field = @{$column};
   my @table_data = @{$col_val};
@@ -122,17 +122,17 @@ sub insert_arg5 {
   my $field_col = join ', ', @table_field;
   
   my @get_PrepareSt = utils->insert_data_prepare_statement(\@table_data);
-  #	my @get_noPrepareSt = utils->insert_data_no_prepare_statement(\@table_data);
-  #	my $size_PrepareSt = scalar @get_PrepareSt;
-  #	my $size_noPrepareSt = scalar @get_noPrepareSt;
-  #	my $value_col_PrepareSt = '?, ' x $size_PrepareSt;
-  #	my $value_col_noPrepareSt = join ', ', @get_noPrepareSt;
-  #	my $value_col = '';
-  #	if ($size_noPrepareSt >= 1) {
-  #		$value_col = $value_col_PrepareSt.', '.$value_col_noPrepareSt;
-  #	} else {
-  #		$value_col = $value_col_PrepareSt;
-  #	}
+  #  my @get_noPrepareSt = utils->insert_data_no_prepare_statement(\@table_data);
+  #  my $size_PrepareSt = scalar @get_PrepareSt;
+  #  my $size_noPrepareSt = scalar @get_noPrepareSt;
+  #  my $value_col_PrepareSt = '?, ' x $size_PrepareSt;
+  #  my $value_col_noPrepareSt = join ', ', @get_noPrepareSt;
+  #  my $value_col = '';
+  #  if ($size_noPrepareSt >= 1) {
+  #    $value_col = $value_col_PrepareSt.', '.$value_col_noPrepareSt;
+  #  } else {
+  #    $value_col = $value_col_PrepareSt;
+  #  }
   
   my @get_data_value = utils->replace_data_value_insert(\@table_data);
   my $value_col = join ', ', @get_data_value;
@@ -202,7 +202,7 @@ sub insert_arg6 {
   my %data = (
     'result' => 2
   );
-  #	print Dumper \@_;
+  #  print Dumper \@_;
   
   my $size_col = scalar @table_field;
   my $size_val = scalar @table_data;
@@ -212,24 +212,24 @@ sub insert_arg6 {
   my @get_noPrepareSt = utils->insert_data_no_prepare_statement(\@table_data);
   my $size_PrepareSt = scalar @get_PrepareSt;
   my $size_noPrepareSt = scalar @get_noPrepareSt;
-  #	my $value_col_PrepareSt = '?, ' x $size_PrepareSt;
-  #	my $value_col_noPrepareSt = join ', ', @get_noPrepareSt;
-  #	my $value_col = '';
-  #	if ($size_noPrepareSt >= 1) {
-  #		$value_col = $value_col_PrepareSt.', '.$value_col_noPrepareSt;
-  #	} else {
-  #		$value_col = $value_col_PrepareSt;
-  #	}
+  #  my $value_col_PrepareSt = '?, ' x $size_PrepareSt;
+  #  my $value_col_noPrepareSt = join ', ', @get_noPrepareSt;
+  #  my $value_col = '';
+  #  if ($size_noPrepareSt >= 1) {
+  #    $value_col = $value_col_PrepareSt.', '.$value_col_noPrepareSt;
+  #  } else {
+  #    $value_col = $value_col_PrepareSt;
+  #  }
   my @get_data_value = utils->replace_data_value_insert(\@table_data);
   my $value_col = join ', ', @get_data_value;
-  #	print "Result get prepare statement :\n";
-  #	print Dumper \@get_PrepareSt;
+  #  print "Result get prepare statement :\n";
+  #  print Dumper \@get_PrepareSt;
   
   $field_col = trim($field_col);
   $value_col = trim($value_col);
   $value_col =~ s/\,$//g;
   $value_col =~ s/\s\,//g;
-  #	print "Value Data = $value_col\n";
+  #  print "Value Data = $value_col\n";
   
   my $param = {
     dbh        => $dbh,
@@ -247,16 +247,16 @@ sub insert_arg6 {
       $where_clause = ' WHERE NOT EXISTS (' . $attr->{where} . ')';
     }
     my $q = "INSERT INTO $table_name($field_col) VALUES($value_col)" . $where_clause;
-    #		print "Query : \n $q\n";
+    #    print "Query : \n $q\n";
     my $sth = $dbh->prepare($q);
     $sth->execute(@get_PrepareSt);
     
-    #		print "Colum Value : \n";
-    #		print Dumper \@get_PrepareSt;
+    #    print "Colum Value : \n";
+    #    print Dumper \@get_PrepareSt;
     
     $attr = utils->attr_val($attr);
     my $size_attr = scalar keys %{$attr};
-    #		print "size attr $size_attr\n";
+    #    print "size attr $size_attr\n";
     unless ($size_attr == 0) {
       if (exists $attr->{callback} and $attr->{callback} eq 'sth') {
         if (ref($callback) eq "CODE") {
@@ -277,7 +277,8 @@ sub insert_arg6 {
           if (ref($callback) eq "CODE") {
             my $result = $dbh->$callback($sth, $new_id, $q, $param, $sql_error);
             return $result;
-          } else {
+          }
+          else {
             $data{'result'} = 1;
             $data{'data'} = $new_id;
             return \%data;
@@ -390,7 +391,7 @@ sub update_arg6 {
       my $q = "UPDATE $table_name SET $field_change" . $query_clause;
       my $sth = $dbh->prepare($q);
       $sth->execute(@{$value});
-      #		print "Query :\n $q\n";
+      #    print "Query :\n $q\n";
       my $sql_error = error_sql;
       if (ref($callback) eq "CODE") {
         return $dbh->$callback($sth, $sql_error);
@@ -399,7 +400,7 @@ sub update_arg6 {
         my $action = utils->action_InQuery();
         return $action->{update}($dbh, $sth);
       }
-      #			$dbh->disconnect();
+      #      $dbh->disconnect();
     }
   }
   else {
@@ -429,7 +430,7 @@ sub delete_arg4 {
       }
     }
   }
-  #	$dbh->disconnect();
+  #  $dbh->disconnect();
   return \%data;
 }
 
@@ -446,7 +447,7 @@ sub delete_arg5 {
   my $attr = '';
   my $size_arg3 = '';
   
-  #	print Dumper \@_;
+  #  print Dumper \@_;
   if (ref($clause) eq "HASH") {
     $size_arg3 = scalar keys %{$clause};
   }
@@ -470,7 +471,7 @@ sub delete_arg5 {
     if (ref($attr) eq "HASH") {
       $query_clause = utils->create_clause($clause);
       my $q = "DELETE FROM $table_name" . $query_clause;
-      #			print "$q\n";
+      #      print "$q\n";
       $data{'result'} = 1;
       $data{'type'} = 'query';
       $data{'data'} = $q;
@@ -482,7 +483,7 @@ sub delete_arg5 {
       
       $query_clause = utils->create_clause($clause);
       my $q = "DELETE FROM $table_name" . $query_clause;
-      #			print "$q\n";
+      #      print "$q\n";
       my $sth = $dbh->prepare($q);
       $sth->execute(@{$value});
       
@@ -497,7 +498,7 @@ sub delete_arg5 {
     }
   }
   else {
-    #		$dbh->disconnect();
+    #    $dbh->disconnect();
     return \%data;
   }
 }
@@ -629,7 +630,7 @@ sub select_arg4 {
     my $action = utils->action_InQuery();
     %data = %{$action->{select}($dbh, $sth)};
   }
-  #	$dbh->disconnect();
+  #  $dbh->disconnect();
   return \%data;
 }
 
@@ -721,7 +722,7 @@ sub select_arg5 {
     my $action = CellBIS::DBIO::Query::Utils->action_InQuery();
     %data = %{$action->{select}($dbh, $sth)};
   }
-  #	$dbh->disconnect();
+  #  $dbh->disconnect();
   return \%data;
 }
 
@@ -777,7 +778,7 @@ sub select_arg6 {
         $sth = $dbh->prepare($q);
         $sth->execute(@value_col);
         my $sql_error = error_sql;
-        #				print "$q\n";
+        #        print "$q\n";
         return $dbh->$callback($sth, $q, $param, $sql_error);
       }
       else {
@@ -787,7 +788,7 @@ sub select_arg6 {
           $sth = $dbh->prepare($q);
           $sth->execute(@value_col);
           my $sql_error = error_sql;
-          #					print "q\n";
+          #          print "q\n";
           return $dbh->$callback($sth, $q, $param, $sql_error);
         }
         else {
@@ -795,7 +796,7 @@ sub select_arg6 {
           $sth = $dbh->prepare($q);
           $sth->execute();
           my $sql_error = error_sql;
-          #					print "q\n";
+          #          print "q\n";
           return $dbh->$callback($sth, $q, $param, $sql_error);
         }
       }
@@ -805,7 +806,7 @@ sub select_arg6 {
       $sth = $dbh->prepare($q);
       $sth->execute();
       my $sql_error = error_sql;
-      #			print "q\n";
+      #      print "q\n";
       return $dbh->$callback($sth, $q, $param, $sql_error);
     }
   }

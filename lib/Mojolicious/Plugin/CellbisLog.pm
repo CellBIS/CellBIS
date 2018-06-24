@@ -1,8 +1,8 @@
 package Mojolicious::Plugin::CellbisLog;
+$Mojolicious::Plugin::CellbisLog::VERSION = '0.1';
 use Mojo::Base 'Mojolicious::Plugin';
 
 # ABSTRACT: CellBIS Toolkit for handle Log Application based on Mojolicious Plugin
-our $VERSION = '0.1000';
 
 use CellBIS::Log;
 
@@ -42,4 +42,5 @@ sub register {
 			return CellBIS::Log->new(@_);
 	});
 }
+
 1;

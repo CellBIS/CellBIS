@@ -1,5 +1,5 @@
 package CellBIS::DateTime;
-
+$CellBIS::DateTime::VERSION = '0.1';
 use strict;
 use warnings;
 
@@ -7,9 +7,6 @@ use Scalar::Util qw(blessed);
 use DateTime;
 use base 'CellBIS::DateTime::lang';
 use Data::Dumper;
-
-# Version :
-our $VERSION = '0.1000';
 
 # scalar global :
 our ($language, $date_lang);

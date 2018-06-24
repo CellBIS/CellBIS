@@ -1,11 +1,11 @@
 package Mojolicious::Command::generate::cb_controller;
+$Mojolicious::Command::generate::cb_controller::VERSION = '0.1';
 use Mojo::Base 'Mojolicious::Command';
 
 use Mojolicious;
 use Mojo::Util qw(class_to_path);
 
 # ABSTRACT: Mojolicious command generator for controllers
-our $VERSION = '0.1000';
 
 has description => 'This aplication generate controller classes';
 has usage => sub{ shift->_show_usage };

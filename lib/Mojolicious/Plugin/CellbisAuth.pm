@@ -1,4 +1,5 @@
 package Mojolicious::Plugin::CellbisAuth;
+$Mojolicious::Plugin::CellbisAuth::VERSION = '0.1';
 use Mojo::Base 'Mojolicious::Plugin';
 
 use Carp ();
@@ -11,7 +12,6 @@ use CellBIS::Auth::Store::Auth_login;
 use CellBIS::Auth::Store::Auth_login_old;
 
 # ABSTRACT: CellBIS Toolkit for Handle Authentication based on Mojolicious Plugin.
-our $VERSION = '0.1000';
 
 # Register Plugin :
 # ------------------------------------------------------------------------

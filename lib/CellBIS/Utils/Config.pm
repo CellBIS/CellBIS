@@ -1,10 +1,9 @@
 package CellBIS::Utils::Config;
+$CellBIS::Utils::Config::VERSION = '0.1';
 use strict;
 use warnings FATAL => 'all';
 
 use CellBIS::enkripsi;
-
-our $VERSION = '0.1000';
 
 # Secret config login :
 # ------------------------------------------------------------------------

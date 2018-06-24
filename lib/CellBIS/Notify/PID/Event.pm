@@ -1,8 +1,8 @@
 package CellBIS::Notify::PID::Event;
+$CellBIS::Notify::PID::Event::VERSION = '0.1';
 use Mojo::Base '-strict';
 
 # ABSTRACT: Module for handle Event Proccess
-our $VERSION = '0.1000';
 
 # If PID is found :
 # ------------------------------------------------------------------------

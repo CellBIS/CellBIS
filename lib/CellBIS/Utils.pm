@@ -1,9 +1,7 @@
 package CellBIS::Utils;
+$CellBIS::Utils::VERSION = '0.1';
 use strict;
 use warnings FATAL => 'all';
-
-# Version :
-our $VERSION = '0.1000';
 
 # Subroutine for get protocols :
 # ------------------------------------------------------------------------

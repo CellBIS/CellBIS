@@ -1,10 +1,10 @@
 package CellBIS::Auth::Store::Auth_login_old;
+$CellBIS::Auth::Store::Auth_login_old::VERSION = '0.1';
 use Mojo::Base '-strict';
 
 use Exporter 'import';
 
 # ABSTRACT: CRUD for Logout activities.
-our $VERSION = '0.1000';
 
 our @EXPORT_OK = ('loginOld_tbl_info');
 

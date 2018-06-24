@@ -1,4 +1,5 @@
 package Mojolicious::Plugin::CellbisConfig;
+$Mojolicious::Plugin::CellbisConfig::VERSION = '0.1';
 use Mojo::Base 'Mojolicious::Plugin';
 
 use Data::Dumper;
@@ -7,7 +8,6 @@ use Mojo::Util 'dumper';
 use CellBIS::Utils::Config;
 
 # ABSTRACT: CellBIS Toolkit for Handle configure apps based on Mojolicious Plugin.
-our $VERSION = '0.1000';
 
 sub register {
   my ($self, $app, $config) = @_;

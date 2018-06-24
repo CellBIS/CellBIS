@@ -1,4 +1,5 @@
 package Mojolicious::Plugin::CellbisPOD;
+$Mojolicious::Plugin::CellbisPOD::VERSION = '0.1';
 use Mojo::Base 'Mojolicious::Plugin';
 
 use Scalar::Util qw(blessed);
@@ -19,7 +20,6 @@ use File::ShareDir 'dist_dir';
 use Cwd;
 
 # ABSTRACT: Module for Perldoc
-our $VERSION = '0.1000';
 
 sub register {
   my ($self, $app, $conf) = @_;
@@ -152,17 +152,17 @@ Mojolicious::Plugin::CellbisPOD - POD renderer plugin
 =head1 SYNOPSIS
 
   # Mojolicious (with documentation browser under "/perldoc")
-  my $route = $app->plugin('PODRenderer');
-  my $route = $app->plugin(PODRenderer => {name => 'foo'});
-  my $route = $app->plugin(PODRenderer => {preprocess => 'epl'});
+  my $route = $app->plugin('CellbisPOD');
+  my $route = $app->plugin(CellbisPOD => {name => 'foo'});
+  my $route = $app->plugin(CellbisPOD => {preprocess => 'epl'});
 
   # Example to use default module pod in url "/perldoc".
-  my $route = $app->plugin(PODRenderer => {default => 'Mojolicious::Plugin::CellBIS'});
+  my $route = $app->plugin(CellbisPOD => {default => 'Mojolicious::Plugin::CellBIS'});
 
   # Mojolicious::Lite (with documentation browser under "/perldoc")
-  my $route = plugin 'PODRenderer';
-  my $route = plugin PODRenderer => {name => 'foo'};
-  my $route = plugin PODRenderer => {preprocess => 'epl'};
+  my $route = plugin 'CellbisPOD';
+  my $route = plugin CellbisPOD => {name => 'foo'};
+  my $route = plugin CellbisPOD => {preprocess => 'epl'};
 
   # Without documentation browser
   plugin PODRenderer => {no_perldoc => 1};

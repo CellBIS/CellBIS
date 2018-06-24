@@ -1,4 +1,5 @@
 package Mojolicious::Plugin::CellbisAuth::Token;
+$Mojolicious::Plugin::CellbisAuth::Token::VERSION = '0.1';
 use Mojo::Base 'Mojolicious::Plugin';
 
 use Mojo::Util qw(dumper);
@@ -7,7 +8,7 @@ use CellBIS::Auth::Token::Utils;
 use CellBIS::DateTime;
 use Mojo::JSON 'j';
 
-our $VERSION = '0.1000';
+# ABSTRACT: Mojolicious Plugin for Token Akses
 
 # Register Plugin :
 # ------------------------------------------------------------------------
@@ -466,17 +467,17 @@ Mojolicious::Plugin::CellbisAuth::Token - Mojolicious Plugin
     'error_dbi' => {} # hashref attr DBI
   });
 
-    # Mojolicious::Lite
-    plugin 'CellbisAuth::Token' => {
-        'db_config' => {
-        'db_name' => 'table_name', # Table Name,
-        'db_host' => 'localhost', # mysql host, default "localhost"
-        'db_user' => 'username', # username user database.
-        'db_pass' => 'password', # password user database.
-      },
-      'db_type' => 'mysql', # Type database
-      'error_dbi' => {} # hashref attr DBI
-    };
+  # Mojolicious::Lite
+  plugin 'CellbisAuth::Token' => {
+      'db_config' => {
+      'db_name' => 'table_name', # Table Name,
+      'db_host' => 'localhost', # mysql host, default "localhost"
+      'db_user' => 'username', # username user database.
+      'db_pass' => 'password', # password user database.
+    },
+    'db_type' => 'mysql', # Type database
+    'error_dbi' => {} # hashref attr DBI
+  };
 
   # -----------------------------------------------------------
   # To using plugin in Controller.

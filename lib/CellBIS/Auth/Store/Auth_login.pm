@@ -1,4 +1,5 @@
 package CellBIS::Auth::Store::Auth_login;
+$CellBIS::Auth::Store::Auth_login::VERSION = '0.1';
 use Mojo::Base '-strict';
 
 use Exporter 'import';
@@ -9,7 +10,7 @@ use CellBIS::enkripsi;
 use CellBIS::Auth::Store::Auth_login_old 'loginOld_tbl_info';
 
 # ABSTRACT: CRUD for Login Authentication.
-our $VERSION = '0.1000';
+
 
 our @EXPORT_OK = ('login_tbl_info');
 

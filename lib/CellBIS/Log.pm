@@ -1,4 +1,5 @@
 package CellBIS::Log;
+$CellBIS::Log::VERSION = '0.1';
 use Mojo::Base '-strict';
 
 use Scalar::Util qw(looks_like_number blessed);
@@ -11,7 +12,6 @@ use CellBIS::DBIO::Lite;
 use CellBIS::Log::Config;
 
 # ABSTRACT: Module for handle Log in Database.
-our $VERSION = '0.1000';
 
 # Database Handler :
 # ------------------------------------------------------------------------

@@ -2,7 +2,7 @@ package CellBIS;
 use Mojo::Base '-strict';
 
 # ABSTRACT: Main Module CellBIS Toolkit based on Mojolicious
-our $VERSION = '0.1000';
+our $VERSION = '0.1';
 
 1;
 
