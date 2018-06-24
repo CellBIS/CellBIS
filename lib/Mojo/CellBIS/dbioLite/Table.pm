@@ -10,7 +10,6 @@ use Carp ();
 use Hash::MultiValue;
 
 # ABSTRACT: Table
-our $VERSION = '0.1000';
 
 # Plan Restore and Backup data in Table.
 has [qw(restore backup)];

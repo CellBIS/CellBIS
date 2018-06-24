@@ -8,8 +8,6 @@ use Mojo::Util qw(dumper);
 use Mojo::Loader qw(data_section find_modules load_class);
 
 # ABSTRACT: Module for handle query database.
-our $VERSION = '0.1000';
-$VERSION = eval $VERSION;
 
 has 'dbio';
 has [qw(check_table create_table table_info)];

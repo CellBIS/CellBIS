@@ -8,7 +8,6 @@ use Scalar::Util qw(blessed);
 use Carp ();
 
 # ABSTRACT: Module for handle Database Schema.
-our $VERSION = '0.1000';
 
 has [qw(check_table create_table table_info)];
 
