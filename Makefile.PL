@@ -57,6 +57,7 @@ my %WriteMakefileArgs = (
     "Mojo::DOM" => 0,
     "Mojo::File" => 0,
     "Mojo::JSON" => 0,
+    "Mojo::Loader" => 0,
     "Mojo::URL" => 0,
     "Mojo::Util" => 0,
     "Mojolicious" => 0,
@@ -73,7 +74,7 @@ my %WriteMakefileArgs = (
     "vars" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.1000",
+  VERSION_FROM => 'lib/CellBIS.pm',
   "test" => {
     "TESTS" => ""
   }
@@ -112,6 +113,7 @@ my %FallbackPrereqs = (
   "Mojo::DOM" => 0,
   "Mojo::File" => 0,
   "Mojo::JSON" => 0,
+  "Mojo::Loader" => 0,
   "Mojo::URL" => 0,
   "Mojo::Util" => 0,
   "Mojolicious" => 0,

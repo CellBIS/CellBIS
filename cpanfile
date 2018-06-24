@@ -28,6 +28,7 @@ requires "Mojo::Cookie::Response" => "0";
 requires "Mojo::DOM" => "0";
 requires "Mojo::File" => "0";
 requires "Mojo::JSON" => "0";
+requires "Mojo::Loader" => "0";
 requires "Mojo::URL" => "0";
 requires "Mojo::Util" => "0";
 requires "Mojolicious" => "0";

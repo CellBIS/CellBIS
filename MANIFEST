@@ -7,11 +7,11 @@ META.yml
 Makefile.PL
 cpanfile
 dist.ini
-example/CellBIS/cellbisDBIO
-example/CellBIS/example.db
-example/CellBIS/templates/create_table.html.ep
-example/CellBIS/templates/index.html.ep
-example/CellBIS/templates/layouts/default.html.ep
+example/CellBIS-DBIO/cellbisDBIO
+example/CellBIS-DBIO/example.db
+example/CellBIS-DBIO/templates/create_table.html.ep
+example/CellBIS-DBIO/templates/index.html.ep
+example/CellBIS-DBIO/templates/layouts/default.html.ep
 lib/CellBIS.pm
 lib/CellBIS/Auth.pm
 lib/CellBIS/Auth/Store/Auth_login.pm
@@ -35,7 +35,6 @@ lib/CellBIS/DialogUI.pm
 lib/CellBIS/Log.pm
 lib/CellBIS/Log/Config.pm
 lib/CellBIS/Log/File.pm
-lib/CellBIS/Module_test.pm
 lib/CellBIS/Mojolicious.pm
 lib/CellBIS/Mojolicious/Routes.pm
 lib/CellBIS/Notify/PID.pm
@@ -52,6 +51,11 @@ lib/CellBIS/enkripsi.pm
 lib/CellBIS/enkripsi/jwt.pm
 lib/CellBIS/enkripsi/jwt.pod
 lib/CellBIS/enkripsi_old.pm
+lib/Mojo/CellBIS/dbioLite.pm
+lib/Mojo/CellBIS/dbioLite/Results.pm
+lib/Mojo/CellBIS/dbioLite/Schema.pm
+lib/Mojo/CellBIS/dbioLite/Table.pm
+lib/Mojo/DBIO.pm
 lib/Mojolicious/Command/cb_setup.pm
 lib/Mojolicious/Command/cb_setup/db.pm
 lib/Mojolicious/Command/generate/cb_controller.pm
@@ -62,6 +66,7 @@ lib/Mojolicious/Plugin/CellbisAuth/Token.pm
 lib/Mojolicious/Plugin/CellbisAuth/TokenForm.pm
 lib/Mojolicious/Plugin/CellbisConfig.pm
 lib/Mojolicious/Plugin/CellbisConfig.pod
+lib/Mojolicious/Plugin/CellbisConfig/INI.pm
 lib/Mojolicious/Plugin/CellbisDBIO.pm
 lib/Mojolicious/Plugin/CellbisDBIO.pod
 lib/Mojolicious/Plugin/CellbisEtc.pm

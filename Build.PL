@@ -20,7 +20,7 @@ my %module_build_args = (
     "Achmad Yusri Afandi <yusrideb\@cpan.org>"
   ],
   "dist_name" => "CellBIS",
-  "dist_version" => "0.1000",
+  "dist_version" => "0.1",
   "license" => "artistic_2",
   "module_name" => "CellBIS",
   "recursive_test_files" => 1,
@@ -55,6 +55,7 @@ my %module_build_args = (
     "Mojo::DOM" => 0,
     "Mojo::File" => 0,
     "Mojo::JSON" => 0,
+    "Mojo::Loader" => 0,
     "Mojo::URL" => 0,
     "Mojo::Util" => 0,
     "Mojolicious" => 0,
